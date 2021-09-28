@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <Main/>
+    <h1> {{ mailRandomic }} </h1>
   </div>
 </template>
 
@@ -13,8 +14,19 @@ export default {
   components: {
     Main,
   },
-  Mounted(){
-    console.log(Axios);
+  data:function(){
+    return{
+      mailRandomic:'',
+    }
+  },
+  mounted(){
+
+  Axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+  .then( res => {
+    const result = res.data;
+    this.mailRandomic = result.response;
+    console.log(this.mailRandomic);
+  });
   }
 }
 </script>
