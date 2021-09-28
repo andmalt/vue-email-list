@@ -1,8 +1,8 @@
 <template>
   <div class="main-content">
     <h1>Email list:</h1>
-    <ul>
-      <li v-for="(element,index) in mail" :key="index"> {{ element }} </li>
+    <ul v-for="(element,index) in mail" :key="index">
+      <li v-if="mail.length >= 10"> {{ element }} </li>
     </ul>
   </div>
 </template>
