@@ -1,6 +1,6 @@
 <template>
   <div id="Container">
-    <Main :mail="mailRandomic" />
+    <Main :mail="emails" />
   </div>
 </template>
 
@@ -16,16 +16,22 @@ export default {
   data:function(){
     return{
       mailRandomic:'',
+      emails:[],
+
     }
   },
   mounted(){
 
-  Axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
-  .then( res => {
-    const result = res.data;
-    this.mailRandomic = result.response;
-    console.log(this.mailRandomic);
-  });
+    for(let i = 0; i < 10 ; i++){
+    Axios.get('https://flynn.boolean.careers/exercises/api/random/mail')
+      .then( res => {
+      const result = res.data;
+      this.mailRandomic = result.response;
+      this.emails.push(this.mailRandomic);
+      });
+
+    }
+    console.log(this.emails)
   }
 }
 </script>
