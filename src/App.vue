@@ -1,7 +1,6 @@
 <template>
-  <div id="app">
-    <Main/>
-    <h1> {{ mailRandomic }} </h1>
+  <div id="Container">
+    <Main :mail="mailRandomic" />
   </div>
 </template>
 
@@ -32,7 +31,7 @@ export default {
 </script>
 
 <style lang="scss">
-#app {
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
